@@ -3,14 +3,27 @@
 
 namespace App\Repositories\Regulations;
 
+use App\Models\Division;
 use App\Models\Stage;
+use App\Models\Team;
 use App\Repositories\Contracts\TournamentRepositoryContract;
+use Illuminate\Database\Eloquent\Model;
 
-class TwoDivisionsWithPlayoffTreeType implements TournamentRepositoryContract {
+class TwoDivisionsWithPlayoffTreeType implements TournamentRepositoryContract
+{
 
     public function register_new_team(string $name): void
     {
-        // TODO: Implement register_new_team() method.
+
+        $new_team = Team::create([
+            'name' => $name,
+            'division_id' => Division::VacantForNewTeam()->first()->id
+        ]);
+
+//        dd($new_team->division_id);
+//        $new_team->division_id = $divisions->;
+
+
     }
 
     public function play_next_game_by_schedule(): void

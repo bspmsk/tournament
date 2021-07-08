@@ -15,8 +15,11 @@ class Stage extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'name',
     ];
+
+    public $timestamps = false;
 
     public function games()
     {

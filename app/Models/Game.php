@@ -22,6 +22,8 @@ class Game extends Model
         'stage_id',
     ];
 
+    public $timestamps = false;
+
     public function team_home()
     {
         return $this->belongsTo(Team::class,'team1');

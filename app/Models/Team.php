@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +20,8 @@ class Team extends Model
         'division_id',
     ];
 
+    public $timestamps = false;
+
     public function division()
     {
         return $this->belongsTo(Division::class);
@@ -26,11 +29,11 @@ class Team extends Model
 
     public function games_home()
     {
-        return $this->hasMany(Game::class,'team1','id');
+        return $this->hasMany(Game::class, 'team1', 'id');
     }
 
     public function games_visitor()
     {
-        return $this->hasMany(Game::class,'team2','id');
+        return $this->hasMany(Game::class, 'team2', 'id');
     }
 }

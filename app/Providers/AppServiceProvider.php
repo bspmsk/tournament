@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\Contracts\TournamentRepositoryContract;
 use App\Repositories\Regulations\TwoDivisionsWithPlayoffTreeType;
-use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider as IdeHelperServiceProviderAlias;
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         if ($this->app->isLocal()) {
-            $this->app->register(IdeHelperServiceProviderAlias::class);
+            $this->app->register(IdeHelperServiceProvider::class);
         }
     }
 
